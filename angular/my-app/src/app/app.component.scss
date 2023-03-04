@@ -13,20 +13,30 @@ $secondaryTextColor: #ccc;
 
     background-color: #f4f4f4;
     font-family: "Montserrat", sans-serif;
+
+    padding-top: 200px;
+    padding-bottom: 60px;
     h1 {
         color: #d2691e;
         font-size: 60px;
         font-weight: 200;
+        margin-bottom: 35px;
     }
     h6{
         text-align: center;
         color: $secondaryTextColor;
         font-size: 14px;
         font-weight: 200;
+        margin-top: 12px;
     }
     span {
         color: #a4a4a4;
     }
+    
+}
+
+.todo{
+
 }
 
 
