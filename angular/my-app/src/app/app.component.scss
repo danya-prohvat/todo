@@ -42,6 +42,12 @@ $secondaryTextColor: #ccc;
     border-radius: 2px;
 
     &-item{
+        padding: 16px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
         &-circle{
             width: 30px;
             height: 30px;
@@ -51,6 +57,16 @@ $secondaryTextColor: #ccc;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+        }
+        &-title {
+            flex: 1;  
+            margin-left: 28px;      
+        }
+        &-title p{
+            font-size: 16px;
+        }
+        &-removeIcon img{
+            width: 22px;
         }
     }
     &-filterBar{
