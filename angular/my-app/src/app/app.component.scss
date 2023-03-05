@@ -36,7 +36,58 @@ $secondaryTextColor: #ccc;
 }
 
 .todo{
+    width: 500px;
+    background-color: #fdfdfd;
+    box-shadow: 0 4px 8px 0 rgb(34 60 80 / 20%);
+    border-radius: 2px;
 
+    &-item{
+        &-circle{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+    &-filterBar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:  22px 14px;
+
+        &-itemsCount{
+            font-size: 15px;
+        }
+        &-showWhat{
+            font-size: 14px;
+            button{
+                border: none;
+                background-color: transparent;
+                padding-left: 6px;
+                padding-right: 6px;
+
+                font-family: "Montserrat", sans-serif;
+                font-size: 14px;
+                cursor: pointer;
+            }
+        }
+        &-clearCompleted{
+            font-size: 15px;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#activeFilter {
+    border: 1px solid grey;
+    border-radius: 3px;
 }
 
 
