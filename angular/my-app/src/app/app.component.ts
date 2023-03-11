@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Axios } from './axios';
 interface Todo {
   id:number
   title:string
@@ -12,17 +13,25 @@ type Todos = Todo[]
 })
 
 export class AppComponent {
+  axios = new Axios("http://localhost:8080/api/");
+
+
   author = 'Daniil Prokhvatilov';
-  todos:Todos = [{title:'dsadas', id:1, checked:true},
-  {title:'dsadas', id:1, checked:true},
-  {title:'dsadas', id:1, checked:true}]
   filterBy = 'all'
+  todos:Todos = []
 
   clearComplete() {
     console.log('clearComplete');
   }
 
-  changeFilter(filterType:string) {
+  async changeFilter(filterType:string) {
     this.filterBy = filterType
+    this.todos = await this.axios.getTodos(this.filterBy);
+  }
+
+  async ngOnInit() {
+    this.todos = await this.axios.getTodos(this.filterBy);
   }
 }
+
+
