@@ -20,7 +20,7 @@ export class AppComponent {
   todos:Todos = []
 
   clearComplete() {
-    console.log('clearComplete');
+    this.axios.clearCompleted()
     this.fetchTodoes()
   }
 

@@ -16,4 +16,8 @@ export class Axios {
     async changeTodoStatus(id:number) {
         await fetch(`${this.baseUrl}updateTodo?id=${id}`)
     }
+
+    async clearCompleted() {
+        await fetch(`${this.baseUrl}clearCompleted`)
+    }
 }
