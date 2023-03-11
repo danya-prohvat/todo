@@ -32,6 +32,7 @@ router.get("/getTodos", (req, res) => {
     res.status(500).json(error);
   }
 });
+
 router.post("/createTodo", (req, res) => {
   try {
     const newTodo = { title: req.body.title, id: Date.now(), checked: false };
@@ -44,28 +45,34 @@ router.post("/createTodo", (req, res) => {
   }
 });
 
-router.patch("/updateTodo", (req, res) => {
+router.get("/updateTodo", (req, res) => {
   try {
     const id = req.query.id;
-    const updateTodo = {
-      ...todoes.filter((todo) => todo.id === id)[0],
-      checked: !todoes.filter((todo) => todo.id === id)[0].checked,
-    };
 
-    todoes = [...todoes.filter((todo) => todo.id !== id), updateTodo];
+    const index = todoes.findIndex((todo) => todo.id === +id);
+    todoes[index].checked = !todoes[index].checked;
 
-    res.json(updateTodo);
+    res.json(todoes[index]);
   } catch (error) {
     res.status(500).json(error);
   }
 });
-router.delete("/deleteTodo", (req, res) => {
+router.get("/deleteTodo", (req, res) => {
   try {
     const id = req.query.id;
 
-    todoes = [...todoes.filter((todo) => todo.id !== id)];
+    todoes = [...todoes.filter((todo) => todo.id !== +id)];
 
     res.json(id);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+router.get("/clearCompleted", (req, res) => {
+  try {
+    todoes = [...todoes.filter((todo) => !todo.checked)];
+
+    res.json(todoes);
   } catch (error) {
     res.status(500).json(error);
   }
