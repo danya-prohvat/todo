@@ -15,21 +15,35 @@ type Todos = Todo[]
 export class AppComponent {
   axios = new Axios("http://localhost:8080/api/");
 
-
   author = 'Daniil Prokhvatilov';
   filterBy = 'all'
   todos:Todos = []
 
   clearComplete() {
     console.log('clearComplete');
+    this.fetchTodoes()
   }
 
-  async changeFilter(filterType:string) {
+  deleteTodo(id:number) {
+    this.axios.deleteTodo(id)
+    this.fetchTodoes()
+  }
+
+  changeTodoStatus(id:number) {
+    this.axios.changeTodoStatus(id)
+    this.fetchTodoes()
+  }
+
+  changeFilter(filterType:string) {
     this.filterBy = filterType
-    this.todos = await this.axios.getTodos(this.filterBy);
+    this.fetchTodoes()
   }
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.fetchTodoes()
+  }
+
+  async fetchTodoes() {
     this.todos = await this.axios.getTodos(this.filterBy);
   }
 }

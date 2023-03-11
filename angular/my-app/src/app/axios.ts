@@ -8,4 +8,12 @@ export class Axios {
         const response = await fetch(`${this.baseUrl}getTodos?filterBy=${todoType}`)
         return response.json()
     }
+
+    async deleteTodo(id:number) {
+        await fetch(`${this.baseUrl}deleteTodo?id=${id}`)
+    }
+
+    async changeTodoStatus(id:number) {
+        await fetch(`${this.baseUrl}updateTodo?id=${id}`)
+    }
 }

@@ -6,13 +6,13 @@
   <div class="todo">
     <div *ngFor="let todo of todos">
       <div class="todo-item">
-        <div class="todo-item-circle">
-          <img src="../assets/icon/markIcon.svg" alt="markIcon">
+        <div (click)="changeTodoStatus(todo.id)" class="todo-item-circle">
+          <img *ngIf="todo.checked" src="../assets/icon/markIcon.svg" alt="markIcon">
         </div>
         <div class="todo-item-title">
           <p>{{todo.title}}</p>
         </div>
-        <div class="todo-item-removeIcon">
+        <div (click)="deleteTodo(todo.id)" class="todo-item-removeIcon">
           <img src="../assets/icon/removeIcon.svg" alt="removeIcon">
         </div>
       </div>
