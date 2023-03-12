@@ -16,6 +16,9 @@ $secondaryTextColor: #ccc;
 
     padding-top: 200px;
     padding-bottom: 60px;
+
+    min-height: 100vh;
+    box-sizing: border-box;
     h1 {
         color: #d2691e;
         font-size: 60px;
@@ -46,7 +49,7 @@ $secondaryTextColor: #ccc;
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            padding: 18px 15px 8px;
+            padding: 18px 15px 14px;
             input {
                 margin-left: 25px;
                 width: 100%;
@@ -55,9 +58,21 @@ $secondaryTextColor: #ccc;
                 font-size: 20px;
                 font-family: "Montserrat",sans-serif;
                 background-color: transparent;
+                &::placeholder {
+                    color: gray;
+                    font-style: italic;
+                }
             }
             img {
                 width: 34px;
+            }
+            &-hr{
+                width: 100%;
+                height: 1.5px;
+                background-color: $secondaryTextColor;
+                border: none;
+                padding: 0;
+                margin: 0;
             }
         }
     }
@@ -89,6 +104,12 @@ $secondaryTextColor: #ccc;
         &-removeIcon img{
             width: 22px;
             cursor: pointer;
+        }
+        &-hr{
+            width: 100%;
+            height: 1px;
+            background-color: $secondaryTextColor;
+            border: none;
         }
     }
     &-filterBar{

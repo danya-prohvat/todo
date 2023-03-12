@@ -7,9 +7,9 @@
         <div>
           <img src="../assets/icon/arrowIcon.svg" alt="markIcon">
         </div>
-        <input (keypress)="onKeypressEvent($event)" type="text">
+        <input (keypress)="onKeypressEvent($event)" type="text" placeholder="What needs to be done?">
       </div>
-      <hr>
+      <hr *ngIf="todos.length" class="todo-input-hr">
     </div>
 
     <div *ngFor="let todo of todos">
@@ -24,10 +24,10 @@
           <img src="../assets/icon/removeIcon.svg" alt="removeIcon">
         </div>
       </div>
-      <hr>
+      <hr class="todo-item-hr">
     </div>
   
-    <div class="todo-filterBar">
+    <div *ngIf="todos.length" class="todo-filterBar">
       <div class="todo-filterBar-itemsCount">
         <p>{{todos.length}} items left</p>
       </div>
