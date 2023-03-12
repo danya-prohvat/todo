@@ -1,9 +1,17 @@
 <div class="main_block">
-
   <h1>todos</h1>
 
-
   <div class="todo">
+    <div class="todo-input">
+      <div class="todo-input-container">
+        <div>
+          <img src="../assets/icon/arrowIcon.svg" alt="markIcon">
+        </div>
+        <input (keypress)="onKeypressEvent($event)" type="text">
+      </div>
+      <hr>
+    </div>
+
     <div *ngFor="let todo of todos">
       <div class="todo-item">
         <div (click)="changeTodoStatus(todo.id)" class="todo-item-circle">

@@ -19,6 +19,14 @@ export class AppComponent {
   filterBy = 'all'
   todos:Todos = []
 
+  onKeypressEvent(event: any){
+    if (event.charCode === 13) {
+      this.axios.createTodo(event.target.value)
+      this.fetchTodoes()
+      event.target.value = '';
+    }
+ }
+
   clearComplete() {
     this.axios.clearCompleted()
     this.fetchTodoes()

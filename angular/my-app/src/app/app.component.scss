@@ -41,6 +41,27 @@ $secondaryTextColor: #ccc;
     box-shadow: 0 4px 8px 0 rgb(34 60 80 / 20%);
     border-radius: 2px;
 
+    &-input{
+        &-container{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 18px 15px 8px;
+            input {
+                margin-left: 25px;
+                width: 100%;
+                border: none;
+                outline: none;
+                font-size: 20px;
+                font-family: "Montserrat",sans-serif;
+                background-color: transparent;
+            }
+            img {
+                width: 34px;
+            }
+        }
+    }
+
     &-item{
         padding: 16px 14px;
         display: flex;
