@@ -1,0 +1,51 @@
+<div class="main_block">
+  <h1>todos</h1>
+
+  <div class="todo">
+    <div class="todo-input">
+      <div class="todo-input-container">
+        <div>
+          <img src="../assets/icon/arrowIcon.svg" alt="markIcon">
+        </div>
+        <input (keypress)="onKeypressEvent($event)" type="text" placeholder="What needs to be done?">
+      </div>
+      <hr *ngIf="todos.length" class="todo-input-hr">
+    </div>
+
+    <div *ngFor="let todo of todos">
+      <div class="todo-item">
+        <div (click)="changeTodoStatus(todo.id)" class="todo-item-circle">
+          <img *ngIf="todo.checked" src="../assets/icon/markIcon.svg" alt="markIcon">
+        </div>
+        <div class="todo-item-title">
+          <p>{{todo.title}}</p>
+        </div>
+        <div (click)="deleteTodo(todo.id)" class="todo-item-removeIcon">
+          <img src="../assets/icon/removeIcon.svg" alt="removeIcon">
+        </div>
+      </div>
+      <hr class="todo-item-hr">
+    </div>
+  
+    <div *ngIf="todos.length" class="todo-filterBar">
+      <div class="todo-filterBar-itemsCount">
+        <p>{{todos.length}} items left</p>
+      </div>
+      <div class="todo-filterBar-showWhat">
+        <button id="{{filterBy === 'all' ? 'activeFilter' : ''}}" (click)="changeFilter('all')">All</button>
+        <button id="{{filterBy === 'active' ? 'activeFilter' : ''}}" (click)="changeFilter('active')">Active</button>
+        <button id="{{filterBy === 'completed' ? 'activeFilter' : ''}}" (click)="changeFilter('completed')">Completed</button>
+      </div>
+      <div class="todo-filterBar-clearCompleted" (click)="clearComplete()">
+        <p>Clear completed</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h6>press Enter to add item</h6>
+    <h6>created by 
+      <span>{{author}}</span>
+    </h6>
+  </div>
+</div>
